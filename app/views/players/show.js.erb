@@ -1,0 +1,7 @@
+$("#player_detail_area").append("<%= j render 'show' %>");
+$('#exampleModal').modal('show');
+
+
+$("#exampleModal").on('hidden.bs.modal', function () {
+  $("#player_detail_area").html('')
+});

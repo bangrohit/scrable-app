@@ -1,0 +1,58 @@
+<style>
+body {
+  /* Set "my-sec-counter" to 0 */
+  counter-reset: my-sec-counter;
+}
+
+legend::after {
+  /* Increment "my-sec-counter" by 1 */
+  counter-increment: my-sec-counter;
+  content: " " counter(my-sec-counter);
+} 
+</style>
+<%= form_for(game) do |form| %>
+  <% if game.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul>
+        <% game.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, :required => true, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :detail %>
+    <%= form.text_area :detail, :class => "form-control" %>
+  </div>
+
+  <%= form.fields_for :game_players do |player, index| %>
+    <fieldset class="mt-3">
+      <legend>Player</legend>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mt-0">
+            <%= player.label "Select Player" %>
+            <%= player.select :player_id, options_for_select(Player.pluck(:name, :id)), {include_blank: "Select Player"}, :class => 'form-control', :required => true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mt-0">
+            <%= player.label "player score" %>
+            <%= player.number_field :score, :required => true, :class => "form-control"  %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <div class="form-group text-end">
+    <a href="<%=games_path%>" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+<% end %>

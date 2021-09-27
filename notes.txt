@@ -1,0 +1,30 @@
+
+A scrabble club requires a system to store members' information and provide leader boards to show their top performing players. For members we would want to store information such as the date they joined the club and their contact details.
+All recorded scrabble games are head to head matches between 2 players, the player with the highest score at the end of the game wins.
+
+You should provide, in order of priority:
+Database schema definition (create table statements) for your solution
+
+A member's profile screen showing their
+1. number of wins
+2. number of losses
+3. their average score
+4. their highest score, when and where it was scored, and against whom
+Interfaces (preferably browser based) to create and edit members' details, such as name, contact number etc.
+
+A leader board screen to list the members with the top 10 average scores, for those members who have played at least 10 matches.
+
+There is no requirement for users to login or be authenticated
+Configure application to prevent as much as security attacks at any level.
+(OPTIONAL – To take advantage)
+Key Notes:
+* Take any Database as Storage.
+* Add Appropriate Validations.
+* Use scaffold, Devise or any other gem if you want.
+
+At the end you must prepare a document that will have the following things mentioned:
+1. Remaining functionality (if any)
+2. Which type of problem(s) you've faced during the test? (if any)
+3. Steps that needs to be executed before running your application (if you have used some gems or other libraries).
+4. Prepare a release note of the features you implemented
+5. Add security prevention details on release note
