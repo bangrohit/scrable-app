@@ -1,4 +1,4 @@
-# Simform Test (Scamble Application)
+# Scamble Application
 
 ## Install
 
